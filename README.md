@@ -12,7 +12,7 @@ Only edit these files:
 - Edit the text directly in the `.md` files.
 - Normal links use:
   `[Text](https://example.com)`
-- Images used inside the page use:
+- Images used inside the page use (replacing "filename.jpg" with the image file name):
   `![Alt text]({{ '/assets/img/filename.jpg' | relative_url }})`
   ex. `![Headshot]({{ '/assets/img/headshot.jpeg' | relative_url }})`
   
@@ -29,6 +29,10 @@ In `work.md`, if you want a link to show an image on hover, use:
 
 ```md
 [Project title](https://projectlink.com "preview: {{ '/assets/img/filename.jpg' | relative_url }}")
+```
+So you just need to add this code snippet after the link and before the end of the bracket. Replacing "filename.jpg" with the image file name:
+```md
+"preview: {{ '/assets/img/filename.jpg' | relative_url }}"
 ```
 
 Example:
