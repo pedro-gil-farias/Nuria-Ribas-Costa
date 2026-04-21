@@ -3,7 +3,7 @@ layout: default
 title: Bio
 ---
 
-![Headshot]({{ '/assets/img/headshot.jpg' | relative_url }})
+![Headshot]({{ '/assets/img/headshot.jpeg' | relative_url }})
 
 Nuria Ribas Costa is a Spanish Journalist and Jurist based between Rotterdam and Ibiza, her homeland. Formerly a member of the Public Relations team of OMA, she currently works as an independent researcher and policy analyst in the fields of urbanism and culture, with projects ranging from music resilience policy-making to collective governance of the city.
 
