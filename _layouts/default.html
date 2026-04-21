@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}" />
+    <meta name="description" content="{{ site.description | escape }}" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav">
+          <a class="brand" href="{{ '/' | relative_url }}">
+            {% if site.title and site.title != "" %}{{ site.title }}{% else %}Home{% endif %}
+          </a>
+
+          <div class="nav-links">
+            <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+            <a href="{{ '/work/' | relative_url }}" class="{% if page.url contains '/work' %}active{% endif %}">Work</a>
+            <a href="{{ '/bio/' | relative_url }}" class="{% if page.url contains '/bio' %}active{% endif %}">Bio</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="muted">
+          © {{ "now" | date: "%Y" }}{% if site.title and site.title != "" %} {{ site.title }}{% endif %}
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
