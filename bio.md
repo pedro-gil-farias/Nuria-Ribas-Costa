@@ -3,18 +3,16 @@ layout: default
 title: Bio
 ---
 
-# Bio
+<div class="bio-grid">
+  <!-- optional photo: put assets/img/headshot.jpg -->
+  <!-- <img src="{{ '/assets/img/headshot.jpg' | relative_url }}" alt="Portrait"> -->
 
-Write a short bio here. Keep it to ~120–200 words.
+Hi! I’m **Your Friend’s Name** (she/her). I’m a journalist, writer, moderator, and radio show host based in ____.
 
-## Contact
+Write 2–4 short paragraphs here.
 
-- Email: <someone@example.com>
+**Contact**
+- Email: hello@example.com
 - Instagram: https://instagram.com/username
-- X: https://x.com/username
 - LinkedIn: https://linkedin.com/in/username
-
-## Press kit (optional)
-- One-line bio
-- 100-word bio
-- Headshot: link to a folder or a single image
+</div>
