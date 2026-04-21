@@ -4,7 +4,7 @@ markdown: kramdown
 
 # For a GitHub Pages *project site* (https://user.github.io/myfriendswebsite/)
 # set this to the repo name:
-baseurl: "/Basicwebsite/"
+baseurl: "/Nuria-Ribas-Costa/"
 url: ""
 
 # Optional: clean permalinks (not critical for 3 pages)
