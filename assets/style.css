@@ -110,3 +110,11 @@ p{ margin: 0 0 14px 0; }
 .css-slideshow:hover img{
   animation-play-state: paused;
 }
+
+/* Make Markdown images responsive + centered */
+.content img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 18px auto;
+}
