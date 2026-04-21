@@ -1,0 +1,14 @@
+title: ""
+description: ""
+markdown: kramdown
+
+# For a GitHub Pages *project site* (https://user.github.io/myfriendswebsite/)
+# set this to the repo name:
+baseurl: "/myfriendswebsite"
+url: ""
+
+# Optional: clean permalinks (not critical for 3 pages)
+permalink: pretty
+
+# Keep it minimal
+plugins: []
