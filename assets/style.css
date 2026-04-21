@@ -77,7 +77,7 @@ p{ margin: 0 0 14px 0; }
 
 /* CSS-only slideshow (3 slides, ~4s each => 12s loop) */
 .css-slideshow{
-  margin-top: 18px;
+  margin: 18px 0 18px 0;
   width: 100%;
   aspect-ratio: 16 / 10;
   position: relative;
