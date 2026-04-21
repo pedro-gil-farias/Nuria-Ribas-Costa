@@ -2,106 +2,111 @@
   --text: #111;
   --muted: #444;
   --bg: #fff;
-  --max: 560px;      /* main content column width */
-  --pad: 42px;       /* general spacing */
+  --max: 640px;
+  --pad: 24px;
 }
 
 *{ box-sizing: border-box; }
-
 html, body { height: 100%; }
+
 body{
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font: 15px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
 }
 
-/* links */
 a{ color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 a:hover{ text-decoration-thickness: 2px; }
 a.active{ text-decoration: none; }
 
-/* header: name left, nav near center */
 .top{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 24px var(--pad);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: baseline;
-  z-index: 10;
-  background: transparent;
+  padding: 22px var(--pad) 10px var(--pad);
 }
 
-.name{ justify-self: start; }
-.name a{ text-decoration: none; }
+.top-inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.name a{
+  text-decoration: none;
+  font-weight: 600;
+}
+
 .nav{
-  justify-self: center;
-  display: flex;
+  margin-top: 10px;
+  display: inline-flex;
   gap: 22px;
 }
 .nav a{ text-decoration: none; }
 .nav a:hover{ text-decoration: underline; }
 
-/* left role label */
-.left{
-  position: fixed;
-  top: 120px;
-  left: var(--pad);
-  width: 220px;
-}
-.role{ color: var(--text); }
-
-/* main content centered */
 .content{
   max-width: var(--max);
   margin: 0 auto;
-  padding: 120px 18px 110px 18px; /* top padding accounts for fixed header */
+  padding: 26px var(--pad) 40px var(--pad);
 }
 
-/* bottom-left email */
 .bottom{
-  position: fixed;
-  bottom: 18px;
-  left: var(--pad);
+  padding: 10px var(--pad) 26px var(--pad);
+}
+.bottom-inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
 }
 .email{ text-decoration: underline; }
 
-/* headings minimal */
 h1, h2, h3{
   margin: 0 0 14px 0;
   font-weight: 600;
-  font-size: 15px; /* same size as body, like the reference */
+  font-size: 15px; /* minimal like the reference */
 }
 p{ margin: 0 0 14px 0; }
 
-/* “work list” styling */
+/* work list */
 .work-list{
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.work-list li{ margin: 6px 0; }
+.work-list li{ margin: 8px 0 14px 0; }
 .work-list small{ color: var(--muted); display: block; margin-top: 2px; }
 
-/* optional bio two-column block */
-.bio-grid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+/* slideshow */
+.slideshow{
+  margin-top: 18px;
 }
-.bio-grid img{
+.slideshow-frame{
   width: 100%;
-  height: auto;
+  aspect-ratio: 16 / 10;
+  background: #f2f2f2;
+  overflow: hidden;
+}
+.slideshow-frame img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+.slideshow-frame img.is-active{
   display: block;
 }
-
-/* responsive: when small, move role/email into normal flow */
-@media (max-width: 900px){
-  .left, .bottom{ position: static; }
-  .top{ position: static; grid-template-columns: 1fr; gap: 10px; padding: 18px var(--pad); }
-  .nav{ justify-self: start; }
-  .content{ padding-top: 18px; padding-bottom: 18px; }
+.slideshow-controls{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.slideshow-controls button{
+  border: 1px solid #ddd;
+  background: transparent;
+  padding: 6px 10px;
+  cursor: pointer;
+  font: inherit;
+}
+.slideshow-controls button:hover{
+  background: #f6f6f6;
 }
