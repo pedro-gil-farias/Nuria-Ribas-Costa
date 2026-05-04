@@ -71,8 +71,8 @@ a{
   transition:
     font-weight 0.3s ease,
     text-shadow 1.6s ease,
-    text-decoration-thickness .3s ease,
-    text-decoration-color .3s ease;
+    text-decoration-thickness 0.3s ease,
+    text-decoration-color 0.3s ease;
 }
 
 /* Links get slightly darker and more swollen on hover, like fresh ink soaking outward. */
