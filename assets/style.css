@@ -52,11 +52,40 @@ body::before{
   z-index: 1;
 }
 
-/* Default link treatment across the whole site. */
-a{ color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; font-weight: 400; transition: font-weight 0.25s ease; }
+/*
+  Default link treatment across the whole site.
+  The stacked shadows and slightly thicker underline mimic ink bleeding into absorbent paper.
+*/
+a{
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(28, 18, 9, 0.82);
+  font-weight: 560;
+  text-shadow:
+    0.015em 0 rgba(28, 18, 9, 0.28),
+    -0.015em 0 rgba(28, 18, 9, 0.18),
+    0 0 0.025em rgba(28, 18, 9, 0.32),
+    0 0 0.08em rgba(28, 18, 9, 0.14);
+  transition:
+    font-weight 0.25s ease,
+    text-shadow 0.25s ease,
+    text-decoration-thickness 0.25s ease,
+    text-decoration-color 0.25s ease;
+}
 
-/* Links get slightly heavier and more obvious on hover. */
-a:hover{ text-decoration-thickness: 2px; font-weight: 800; }
+/* Links get slightly darker and more swollen on hover, like fresh ink soaking outward. */
+a:hover{
+  text-decoration-thickness: 2.5px;
+  text-decoration-color: rgba(28, 18, 9, 0.95);
+  font-weight: 680;
+  text-shadow:
+    0.02em 0 rgba(28, 18, 9, 0.34),
+    -0.02em 0 rgba(28, 18, 9, 0.22),
+    0 0 0.035em rgba(28, 18, 9, 0.36),
+    0 0 0.11em rgba(28, 18, 9, 0.18);
+}
 
 /* Active nav links drop the underline so the current page feels fixed rather than clickable. */
 a.active{ text-decoration: none; }
