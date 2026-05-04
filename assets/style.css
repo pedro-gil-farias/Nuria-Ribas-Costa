@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
+/*
+  Theme variables shared across the site.
+  Keeping these in :root makes it easy to rebalance the palette and spacing later.
+*/
 :root{
   --text: #1c1209;
   --muted: #5a4a3a;
@@ -8,9 +12,16 @@
   --pad: 24px;
 }
 
+/* Use border-box sizing everywhere so padding and borders stay predictable. */
 *{ box-sizing: border-box; }
+
+/* Make the root elements stretch to the viewport height so the flex footer layout can work. */
 html, body { height: 100%; }
 
+/*
+  Global page scaffold.
+  The body is a vertical flex container so the main content expands and the footer stays at the bottom.
+*/
 body{
   min-height: 100vh;
   display: flex;
@@ -26,45 +37,61 @@ body{
   text-shadow: 0 0 0.4px rgba(28, 18, 9, 0.35);
 }
 
+/*
+  Full-page grain overlay.
+  It sits above the background color but ignores pointer events so the page remains fully interactive.
+*/
 body::before{
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.48;
   mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 1;
 }
 
+/* Default link treatment across the whole site. */
 a{ color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; font-weight: 400; transition: font-weight 0.25s ease; }
+
+/* Links get slightly heavier and more obvious on hover. */
 a:hover{ text-decoration-thickness: 2px; font-weight: 800; }
+
+/* Active nav links drop the underline so the current page feels fixed rather than clickable. */
 a.active{ text-decoration: none; }
 
+/* Outer header spacing. */
 .top{
   padding: 22px var(--pad) 10px var(--pad);
 }
 
+/* Centers the header content and keeps it aligned to the same width as the page body. */
 .top-inner{
   max-width: var(--max);
   margin: 0 auto;
   text-align: center;
 }
 
+/* Site title link styling. */
 .name a{
   text-decoration: none;
   font-weight: 800;
   font-size: 18px;
 }
 
+/* Horizontal nav row below the site title. */
 .nav{
   margin-top: 10px;
   display: inline-flex;
   gap: 22px;
 }
+
+/* Nav links default to plain text, then underline on hover. */
 .nav a{ text-decoration: none; }
 .nav a:hover{ text-decoration: underline; }
 
+/* Main page column shared by all pages. */
 .content{
   flex: 1 0 auto;
   max-width: var(--max);
@@ -73,22 +100,25 @@ a.active{ text-decoration: none; }
   width: 100%;
 }
 
-/* Carousel */
+/* Homepage carousel wrapper. */
 
 .home-carousel{
   margin: 0 0 28px 0;
 }
 
+/* Relative positioning leaves room for future overlays or transitions if needed. */
 .home-carousel-track{
   position: relative;
 }
 
+/* Each slide spans the content width and follows the image's natural height. */
 .home-carousel-slide{
   margin: 0;
   width: 100%;
   height: auto;
 }
 
+/* Carousel images fill the available width and keep their original aspect ratio. */
 .home-carousel-slide img{
   width: 100%;
   height: auto;
@@ -97,36 +127,46 @@ a.active{ text-decoration: none; }
   background: #e9e0d4;
 }
 
-/* Footer */
+/* Footer shell. */
 
 .bottom{
   padding: 14px var(--pad) 15px var(--pad);
 }
+
+/* Keep footer copy aligned to the same centered column as the header and content. */
 .bottom-inner{
   max-width: var(--max);
   margin: 0 auto;
   text-align: center;
 }
+
+/* Utility class for email-style text links when needed in page content. */
 .email{ text-decoration: underline; }
 
+/* Heading rhythm stays intentionally restrained to match the site's minimal editorial tone. */
 h1, h2, h3{
   margin: 14px 0 14px 0;
   font-weight: 600;
-  font-size: 15px; /* minimal like the reference */
+  font-size: 15px;
 }
+
+/* Paragraph spacing mirrors the heading rhythm for a consistent text block cadence. */
 p{ margin: 14px 0 14px 0; }
 
-/* work list */
+/* Work page list removes bullets and relies on spacing instead. */
 .work-list{
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
+/* Individual work entries receive extra bottom space for readability. */
 .work-list li{ margin: 8px 0 14px 0; }
+
+/* Secondary metadata under work items is quieter than the title line. */
 .work-list small{ color: var(--muted); display: block; margin-top: 2px; }
 
-
-/* Make Markdown images responsive + centered */
+/* Markdown-authored images remain responsive and center themselves inside the content column. */
 .content img{
   max-width: 100%;
   height: auto;
@@ -134,6 +174,7 @@ p{ margin: 14px 0 14px 0; }
   margin: auto auto;
 }
 
+/* Floating preview box that follows the pointer when hovering preview-enabled links. */
 .hover-preview{
   position: fixed;
   top: 0;
@@ -146,11 +187,13 @@ p{ margin: 14px 0 14px 0; }
   z-index: 20;
 }
 
+/* Visibility is controlled by JavaScript with this modifier class. */
 .hover-preview.is-visible{
   opacity: 1;
   visibility: visible;
 }
 
+/* Preview image sizing favors visibility while still capping height to the viewport. */
 .hover-preview img{
   display: block;
   width: 100%;

@@ -6,9 +6,6 @@
     <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}" />
   </head>
-
-  // The body class is set to the page's URL path, with slashes replaced by dashes, to allow for page-specific styling if needed.
-
   <body>
     <header class="top">
       <div class="top-inner">
@@ -23,10 +20,9 @@
         </nav>
       </div>
     </header>
-
-    // If the current page is the homepage, display a carousel of images found in the /assets/img/ directory. Each image's alt text is derived from its filename, with dashes replaced by spaces. The first image is loaded eagerly, while the rest are loaded lazily.
-
+    
     <main class="content">
+      <!-- Only the homepage renders the slideshow. Other pages just render page content. -->
       {% if page.url == '/' %}
       {% assign carousel_images = site.static_files | where_exp: 'file', "file.path contains '/assets/img/'" | sort: 'path' %}
       {% if carousel_images.size > 0 %}
@@ -45,28 +41,36 @@
       {{ content }}
     </main>
     
+    <!-- site footer -->
     <footer class="bottom">
       <div class="bottom-inner">
         <p>© Núria Ribas Costa 2026</p>
       </div>
     </footer>
+
+    <!-- Hidden floating image preview used by links whose title starts with "preview:". -->
     <div class="hover-preview" aria-hidden="true">
       <img alt="" />
     </div>
-    <script>
 
-      // Apply a slight random rotation to each list item and paragraph within the content area to create a more dynamic and less uniform appearance.
+    <!-- Small progressive-enhancement script for text rotation, hover previews, and carousel autoplay. -->
+    <script>
+      // Add a subtle random rotation to paragraphs and list items to keep the page slightly hand-made.
       document.querySelectorAll('.content li, .content p').forEach(el => {
-        const deg = (Math.random() - 0.5) * 1.2; // Random rotation between -0.6 and 0.6 degrees
+        const deg = (Math.random() - 0.5) * 1.2;
         el.style.transform = 'rotate(' + deg + 'deg)';
       });
-      // Implement a hover preview feature for links within the content area that have a title attribute starting with "preview:". When the user hovers over such a link, an image specified in the title attribute is displayed near the cursor. The preview follows the cursor as it moves and disappears when the cursor leaves the link.
+
+      // Cache the shared hover-preview container and its image node once.
       const hoverPreview = document.querySelector('.hover-preview');
       const hoverPreviewImage = hoverPreview.querySelector('img');
+
+      // Only links with a title like "preview: /path/to/image.jpg" opt into the floating preview behavior.
       const hoverTargets = Array.from(document.querySelectorAll('.content a')).filter(target =>
         target.title && target.title.startsWith('preview:')
       );
-      // The positionPreview function calculates the optimal position for the hover preview image based on the cursor's location, ensuring that the preview stays within the viewport and does not overflow off the screen.
+
+      // Keep the preview near the cursor while clamping it inside the viewport.
       const positionPreview = event => {
         const viewportPadding = 16;
         const cursorOffset = 24;
@@ -80,44 +84,55 @@
         hoverPreview.style.left = left + 'px';
         hoverPreview.style.top = top + 'px';
       };
-      // For each link that is a hover target, extract the preview image URL from the title attribute, store it in a data attribute, and set up event listeners for mouseenter, mousemove, and mouseleave to handle the display and positioning of the hover preview.
+
+      // Convert each preview-enabled link into a small interactive target.
       hoverTargets.forEach(target => {
         const previewImage = target.title.replace(/^preview:\s*/, '');
+
+        // Store the image path in a data attribute, then remove the title so the browser tooltip does not appear.
         target.dataset.previewImage = previewImage;
         target.removeAttribute('title');
 
+        // Show the preview on hover and immediately place it beside the cursor.
         target.addEventListener('mouseenter', event => {
           hoverPreviewImage.src = target.dataset.previewImage;
           positionPreview(event);
           hoverPreview.classList.add('is-visible');
         });
 
+        // Update the preview position continuously as the cursor moves.
         target.addEventListener('mousemove', event => {
           if (hoverPreview.classList.contains('is-visible')) {
             positionPreview(event);
           }
         });
 
+        // Clean up the state when the pointer leaves the link.
         target.addEventListener('mouseleave', () => {
           hoverPreview.classList.remove('is-visible');
           hoverPreviewImage.removeAttribute('src');
         });
       });
-      // For each carousel element on the page, set up an autoplay mechanism that cycles through the slides every 5 seconds. The autoplay pauses when the user hovers over the carousel and resumes when the mouse leaves. The current active slide is determined by the presence of the "is-active" class, and only one slide is visible at a time.
+
+      // Enhance each homepage carousel with automatic slide rotation.
       document.querySelectorAll('[data-carousel]').forEach(carousel => {
         const slides = Array.from(carousel.querySelectorAll('.home-carousel-slide'));
 
+        // A single image does not need autoplay logic.
         if (slides.length <= 1) {
           return;
         }
 
+        // Track the current visible slide and keep a handle to the active interval timer.
         let currentIndex = slides.findIndex(slide => slide.classList.contains('is-active'));
         let autoplayId;
 
+        // Fallback in case the initial markup ever ships without an active slide.
         if (currentIndex < 0) {
           currentIndex = 0;
         }
 
+        // Make exactly one slide visible and hide all others with the native hidden attribute.
         const renderSlide = index => {
           slides.forEach((slide, slideIndex) => {
             const isActive = slideIndex === index;
@@ -128,11 +143,13 @@
           currentIndex = index;
         };
 
+        // Move forward or backward and wrap around when the ends are reached.
         const showSlide = index => {
           const nextIndex = (index + slides.length) % slides.length;
           renderSlide(nextIndex);
         };
 
+        // Reset the autoplay timer so user interaction can pause and resume it cleanly.
         const restartAutoplay = () => {
           window.clearInterval(autoplayId);
           autoplayId = window.setInterval(() => {
@@ -140,12 +157,15 @@
           }, 3000);
         };
 
+        // Pause while the cursor is over the image so the user can look at a slide without it changing.
         carousel.addEventListener('mouseenter', () => {
           window.clearInterval(autoplayId);
         });
 
+        // Resume the slideshow once the cursor leaves the carousel.
         carousel.addEventListener('mouseleave', restartAutoplay);
 
+        // Render the initial state and start autoplay.
         renderSlide(currentIndex);
         restartAutoplay();
       });
