@@ -16,12 +16,24 @@ title: Work
 
 6. [Whose Food, What Crisis? with Jennifer Clapp & Thin Lei Win](https://dedependance.eu/events/whose-food-what-crisis/), for De Dépendance at Blue City (2023)
 
+7. [The Suspicion Machine; with Gabriel Geiger, Miriyam Aouragh, Marlies van Eck & Sofia Ranchordas] (https://dedependance.eu/events/the-suspicion-machine/), for De Dépendance at the Independent School for the City (2023)
+
+8. [Countryside at the United Nations] (https://www.oma.com/projects/countryside-at-the-un), with OMA and with The Economist (2021)
+
 
 ---
 # Research / policy
 1. [CIVICITY, Redesigning Design Weeks](https://nieuweinstituut.nl/en/articles/civicity-milan-design-week "preview: {{ '/assets/img/CiviCity.jpg' | relative_url }}"), for Nieuwe Instituut in Rotterdam and Milan (2025)
 
 2. Music Policy Resilience [Lab](https://www.centerformusicecosystems.com/resilience) and [Network](https://www.musicpolicynetwork.com/), with the Center for Music Ecosystems (2022 – ongoing)
+
+3. [Court of the City] (http://tribunal.vigla.city/), with Crearqció, Diego March, Ramon Marrades and Paloma Medina (2022)
+
+4. [Cultura per a la Recuperació], implementation of a new cultural policy for Generalitat Valenciana in Spain; with Ramon Marrades and Paloma Medina (2022)
+
+5. Manual de Pedagogía Urbana of [Tú También Construyes Cuenca] (https://www.huasipichanga.com/ttcc-1), led and implemented in Ecuador by Huasipichanga (2020)
+
+6. [Countryside, A Report] (https://www.oma.com/publications/countryside-a-report); OMA/AMO (2020)
 
 
 ---
@@ -42,14 +54,14 @@ title: Work
 
 2. IMI Winter Academy Participant, [International Migration Institute](https://www.migrationinstitute.org/), Tijuana, México, January 2026
 
-3. Writer in residency, [Can Serrat](https://canserrat.org/es/), Barcelona, Spain, October 2025
+3. Writer in residence, [Can Serrat](https://canserrat.org/es/), Barcelona, Spain, October 2025
 
 4. Acts of Sedimentation, with Julia Strömland; [Kunst Garage Versam](https://www.kunstgarageversam.ch/), Valendas, Switzerland, August 2025
 
 ---
 # Writing
 
-1. Editor, contributor, co-founder of [Revista 078](https://revista078.xyz/)
+1. Editor-in-Chief, co-founder of [Revista 078](https://revista078.xyz/)
 
 2. [European Review of Books](https://europeanreviewofbooks.com/friendship-is-revolutionary-interview-with-marina-garces/)
 
