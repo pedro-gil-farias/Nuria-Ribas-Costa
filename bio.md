@@ -12,7 +12,9 @@ Nuria leads the communications and citizen engagement research at [Humankind](ht
 Nuria is interested in the relationships rural-urban, the politics of space and land and intersectionality in urbanism. She is also actively engaged in cultural activation and is a member and co-programmer of listening space [KODA](https://www.instagram.com/koda_010/) (Schiedam) and a resident on [Operator Radio](https://operator-radio.com/residents/nuria).
 
 
+
 ***
+
 
 
 Núria Ribas Costa és una periodista i jurista espanyola afincada entre Rotterdam i Eivissa, la seva terra natal. Durant dos anys membre de l’equip de Relacions Públiques de l’oficina d’arquitectura [OMA](https://www.oma.com/), actualment treballa com a investigadora independent i especialista en polítiques públiques en els àmbits de l’urbanisme i la cultura, amb projectes que tracten des de polítiques d’activació cultural fins a governança col·lectiva de la ciutat.
@@ -22,7 +24,9 @@ Núria dirigeix les comunicacions i la recerca ciutadana a [Humankind](https://w
 Núria està interessada en les relacions rural-urbà, les polítiques de l’espai i el territori i la interseccionalitat en l’urbanisme. També participa activament en activació cultural i és membre i co-programadora de l’espai d’escolta activa [KODA](https://www.instagram.com/koda_010/) (Schiedam) i resident a [Operator Radio](https://operator-radio.com/residents/nuria).
 
 
+
 ***
+
 
 
 Núria Ribas Costa es una periodista y jurista española afincada entre Rotterdam e Ibiza, su tierra natal. Durante dos años miembro del equipo de Relaciones Públicas de [OMA](https://www.oma.com/), actualmente trabaja como investigadora independiente y especialista en políticas públicas en los campos del urbanismo y la cultura, con proyectos que tratan desde el desarrollo de políticas de activación cultural hasta la gobernanza colectiva de la ciudad.
